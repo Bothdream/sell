@@ -1,0 +1,61 @@
+1.header 组件可能会与原生<header></header>便签产生冲突，会报错误：
+[Vue warn]:Do not use built-in or reserved HTML elements as components id:heder
+2.CSS像素与设备像素，像素比iphone为2
+dpr:设备像素比,是指在移动开发中1个css像素占据多少设备像素，如2代表1个css像素用2*2个设备像素来绘制。
+dpr = 设备像素 / css像素
+dpr = 屏幕横向设备像素 / 理想视口的宽度
+3.vue-loader依赖中的postcss插件搞定了css兼容问题
+4.vue-router2.x和vue-router2.x有区别，最新的是vue-router2.x,本次项目采用vue-router1.x
+let router = new VueRouter({
+	// 配置默认链接被激活后的类名
+	linkActiveClass:"active"
+});
+5.手机端1像素边框问题：transform:scaleY() dpr
+6.异步请求数据父组件传递数据
+  created钩子函数，组件的生命期
+7.
+  （1）父子元素之间有空隙（文本或图片）：主要原因是有空文本
+       父元素字体设置为：font-size：0;
+       子元素设置特定的字体大小
+  （2）让元素紧邻且不换行，且不能换行
+8. 当文字超出时显示省略号：
+   .span { white-space:nowrap;overflow:hidden;text-overflow:ellipsis; } 
+   white-space：nowrap;表示文本不会换行，在同一行继续，知道遇到<br>标签为止；
+   overflow：hidden;不显示超过对象尺寸的内容，就是把超出的部分隐藏了；
+   text-overflow：ellipsis;当文本对象溢出是显示...，当然也可是设置属性为clip不显示点点点；
+9.文字的居中，文字与图片的对齐，文字与字体图标的对齐（line-height）
+  line-height  vertical-align（只有设置inline和inline-block属性才能生效）
+  height
+10.sticky footers布局
+ <div class="detail" v-show="detail">
+     <div class="detail-wrapper clearfix">
+         <div class="detail-main">
+         </div>
+     </div>
+     <div class="detail-close" @click="closeDetail">
+       <i class="icon-close"></i>
+     </div>
+</div>
+ .detail 
+	 position:fixed
+	 top:0
+	 left:0
+	 z-index:100
+	 width:100%
+	 height:100%
+	 .detail-wrapper
+	   min-height:100%
+	   .detail-main
+	     margin-top:64px
+	     padding-bottom:64px /*32px + 64 / 2 font-size*/
+	 .detail-close
+	   width:32px
+	   height:32px
+	   font-size:32px
+	   margin: -64px auto 0 auto
+	   position:relative
+	   clear:both
+11.styl语法：& :
+
+
+shopcart:计算属性
